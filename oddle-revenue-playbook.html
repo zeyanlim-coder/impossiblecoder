@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oddle Revenue Playbook — GTM + CS · 2025–26</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0A0A0A;
+    --bg1: #111;
+    --bg2: #161616;
+    --border: #1A1A1A;
+    --border2: #1E1E1E;
+    --text: #E8E8E8;
+    --text2: #AAA;
+    --muted: #666;
+    --muted2: #555;
+    --muted3: #444;
+    --gtm: #C8F04D;
+    --handoff: #F0C84D;
+    --cs: #88AAFF;
+    --master: #FF8888;
+    --green: #4ADE80;
+    --red: #F87171;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 4px; }
+
+  /* HEADER */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 14px; }
+  .logo-icon {
+    background: var(--gtm);
+    border-radius: 6px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800; color: #0A0A0A;
+  }
+  .logo-title { font-size: 13px; font-weight: 700; color: #F0F0F0; }
+  .logo-sub { font-size: 11px; color: #444; }
+  .header-tags { display: flex; gap: 8px; }
+  .header-tag {
+    font-size: 11px; font-weight: 700;
+    border-radius: 6px; padding: 3px 10px;
+    border: 1px solid;
+  }
+
+  /* LAYOUT */
+  .layout { display: flex; }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 232px;
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    flex-shrink: 0;
+    position: sticky;
+    top: 61px;
+    height: calc(100vh - 61px);
+    overflow-y: auto;
+  }
+  .nav-group { margin-bottom: 8px; }
+  .nav-group-label {
+    padding: 8px 20px 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .nav-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 20px;
+    background: transparent;
+    border: none;
+    border-left: 2px solid transparent;
+    color: var(--muted2);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-item:hover { color: #888; }
+  .nav-item.active {
+    background: var(--bg2);
+    font-weight: 700;
+  }
+  .sidebar-footer {
+    margin: 16px 20px 0;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sidebar-footer-label {
+    font-size: 10px; color: #333;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;
+  }
+  .sidebar-footer-item {
+    font-size: 11px; color: #3A3A3A;
+    padding: 5px 0;
+    border-bottom: 1px solid #161616;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sidebar-footer-dot { color: var(--handoff); font-size: 9px; }
+
+  /* CONTENT */
+  .content {
+    flex: 1;
+    padding: 44px 52px;
+    max-width: 880px;
+    overflow-y: auto;
+  }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* COMPONENTS */
+  .section-label {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 26px; font-weight: 700;
+    color: #F0F0F0; letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .section-subtitle {
+    color: var(--muted); font-size: 14px;
+    line-height: 1.6; max-width: 580px;
+    margin-bottom: 36px;
+  }
+
+  .card {
+    background: var(--bg1);
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 16px;
+    color: var(--gtm);
+  }
+
+  .row {
+    border-bottom: 1px solid var(--border);
+    padding: 13px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .row:last-child { border-bottom: none; }
+  .row-label {
+    width: 180px; flex-shrink: 0;
+    color: var(--muted2); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    padding-top: 2px;
+  }
+  .row-value { flex: 1; color: var(--text); font-size: 14px; line-height: 1.6; }
+  .row-sub { color: var(--muted2); font-size: 12px; margin-top: 4px; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 10px; border-radius: 100px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    margin-right: 6px; margin-bottom: 4px;
+    border: 1px solid;
+  }
+
+  .flow-step { display: flex; gap: 20px; margin-bottom: 28px; }
+  .flow-num {
+    flex-shrink: 0; width: 36px; height: 36px;
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+  }
+  .flow-body { flex: 1; padding-top: 6px; }
+  .flow-title-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .flow-title { color: #F0F0F0; font-size: 15px; font-weight: 600; }
+  .flow-item { color: var(--muted); font-size: 13px; line-height: 1.8; display: flex; gap: 8px; }
+
+  /* TRIGGER TABLE */
+  .trigger-header, .trigger-row {
+    display: grid;
+    grid-template-columns: 1fr 90px 1fr;
+    gap: 12px; padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .trigger-header { padding-bottom: 10px; border-bottom: 1px solid #222; }
+  .trigger-header div { font-size: 11px; color: var(--muted3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .trigger-header .center { text-align: center; }
+  .trigger-channel {
+    text-align: center;
+  }
+  .trigger-channel span {
+    background: var(--border);
+    border: 1px solid #2A2A2A;
+    border-radius: 6px; padding: 3px 8px;
+    font-size: 11px; color: var(--muted);
+  }
+  .trigger-situation { color: var(--text2); font-size: 13px; }
+  .trigger-action { color: var(--text); font-size: 13px; }
+
+  /* STATUS BADGE */
+  .badge {
+    display: inline-block; padding: 3px 10px;
+    border-radius: 6px; font-size: 11px; font-weight: 700;
+    border: 1px solid;
+  }
+  .badge-live { background: #0A2A0A; color: #4ADE80; border-color: #4ADE8044; }
+  .badge-inprogress { background: #2A1A00; color: var(--handoff); border-color: #F0C84D44; }
+  .badge-planned { background: var(--border); color: var(--muted); border-color: #33333344; }
+  .badge-gap { background: #2A0A0A; color: var(--red); border-color: #F8717144; }
+
+  /* TRACKER */
+  .tracker-header, .tracker-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 90px 100px;
+    gap: 16px; padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .tracker-header { padding-bottom: 10px; border-bottom: 1px solid #222; }
+  .tracker-header div { font-size: 11px; color: var(--muted3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .tracker-area { color: var(--muted2); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px; }
+  .tracker-item { color: var(--text); font-size: 13px; }
+  .tracker-note { color: var(--muted2); font-size: 12px; margin-top: 3px; }
+  .tracker-owner { color: var(--muted); font-size: 12px; padding-top: 2px; }
+
+  /* CHANNEL GRID */
+  .channel-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .channel-card { border-radius: 12px; padding: 20px; }
+  .channel-num { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .channel-title { font-size: 14px; font-weight: 700; margin-bottom: 14px; font-family: Georgia, serif; color: #F0F0F0; }
+  .channel-item { font-size: 12px; line-height: 1.8; display: flex; gap: 8px; color: #888; }
+
+  /* QUADRANT GRID */
+  .quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .quad-card { background: var(--bg1); border-radius: 12px; padding: 20px; border: 1px solid; }
+  .quad-tier { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .quad-label { color: #F0F0F0; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .quad-archetype { color: var(--text2); font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+  .quad-desc { color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+  /* CROSS-SELL TABLE */
+  .xsell-header, .xsell-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr 80px;
+    gap: 12px; padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .xsell-header { padding-bottom: 8px; border-bottom: 1px solid #222; }
+  .xsell-header div { font-size: 11px; color: var(--muted3); text-transform: uppercase; letter-spacing: 0.07em; }
+
+  /* FLOW DIAGRAM */
+  .flow-diagram { background: #0D0D0D; border: 1px solid var(--border2); border-radius: 14px; padding: 32px 24px; margin-bottom: 24px; }
+  .flow-section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .flow-bar { width: 3px; height: 16px; border-radius: 2px; }
+  .flow-section-text { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .flow-nodes { display: flex; align-items: center; gap: 0; margin-bottom: 0; }
+  .flow-node { flex: 1; background: var(--bg1); border-radius: 8px; padding: 10px 14px; min-width: 0; }
+  .flow-node-head { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+  .flow-node-num {
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; flex-shrink: 0;
+  }
+  .flow-node-name { color: #F0F0F0; font-size: 12px; font-weight: 600; }
+  .flow-node-sub { color: var(--muted); font-size: 11px; }
+  .flow-arrow { display: flex; align-items: center; flex-shrink: 0; }
+  .flow-arrow-line { width: 24px; height: 1px; background: #2A2A2A; }
+  .flow-arrow-head { color: #2A2A2A; font-size: 14px; }
+  .flow-down { display: flex; flex-direction: column; align-items: center; padding: 6px 0; }
+  .flow-down-line { width: 1px; height: 16px; background: #2A2A2A; }
+  .flow-down-arrow { color: #2A2A2A; font-size: 12px; line-height: 0.5; }
+  .branch-row { display: flex; gap: 8px; margin-top: 6px; width: 100%; }
+  .branch-item { flex: 1; border-radius: 6px; padding: 7px 10px; text-align: center; border: 1px solid; }
+  .branch-label { font-size: 11px; font-weight: 700; }
+  .branch-desc { font-size: 10px; margin-top: 2px; color: var(--muted2); }
+  .seam-divider { margin: 20px 0 16px; border-top: 2px dashed #F0C84D44; position: relative; }
+  .seam-label {
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    background: #0D0D0D; padding: 0 12px;
+    color: var(--handoff); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .feedback-divider { margin: 20px 0 16px; border-top: 1px dashed #FF888844; position: relative; }
+  .feedback-label {
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    background: #0D0D0D; padding: 0 12px;
+    color: var(--master); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ADJACENT PLAYBOOKS */
+  .adjacent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .adjacent-card { background: var(--bg); border-radius: 8px; padding: 16px; border: 1px solid; }
+  .adjacent-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .adjacent-title { color: #F0F0F0; font-size: 14px; font-weight: 600; }
+  .adjacent-desc { color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+  /* CRITICAL GAPS */
+  .gaps-card { background: #0F0A0A; border: 1px solid #F8717133; border-radius: 12px; padding: 20px; margin-top: 8px; }
+  .gaps-title { font-size: 11px; color: var(--red); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+  .gap-item { border-bottom: 1px solid #2A1A1A; padding: 10px 0; }
+  .gap-item:last-child { border-bottom: none; }
+  .gap-item-title { color: var(--red); font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .gap-item-note { color: var(--muted); font-size: 12px; }
+
+  /* UTILITY */
+  .warn-card { border: 1px solid #F0C84D44 !important; background: #0F0E0A !important; }
+  .cs-card { border: 1px solid #88AAFF44 !important; background: #0A0A14 !important; }
+  .gtm-card { border: 1px solid #C8F04D33 !important; background: #0A110A !important; }
+  .muted-card { border: 1px solid #88AAFF33 !important; background: #0A0A14 !important; }
+  .warn2-card { border: 1px solid #F0C84D33 !important; background: #0F0E0A !important; }
+  .red-card { border: 1px solid #F87171 !important; background: #0F0E0A !important; }
+
+  .cycle-text { color: var(--text2); font-size: 13px; line-height: 2; text-align: center; padding: 8px 0; }
+
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .content { padding: 24px 20px; max-width: 100%; }
+    .channel-grid { grid-template-columns: 1fr; }
+    .quad-grid { grid-template-columns: 1fr; }
+    .adjacent-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo-wrap">
+    <div class="logo-icon">O</div>
+    <div>
+      <div class="logo-title">Oddle Revenue Playbook</div>
+      <div class="logo-sub">GTM + CS · Singapore · All Access · 2025–26</div>
+    </div>
+  </div>
+  <div class="header-tags">
+    <span class="header-tag" style="color:#C8F04D;background:#C8F04D15;border-color:#C8F04D33">GTM</span>
+    <span class="header-tag" style="color:#F0C84D;background:#F0C84D15;border-color:#F0C84D33">Handoff</span>
+    <span class="header-tag" style="color:#88AAFF;background:#88AAFF15;border-color:#88AAFF33">CS</span>
+    <span class="header-tag" style="color:#FF8888;background:#FF888815;border-color:#FF888833">Master</span>
+  </div>
+</header>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <div class="nav-group">
+    <div class="nav-group-label" style="color:#C8F04D99">GTM — New Acquisition</div>
+    <button class="nav-item active" data-target="icp" data-color="#C8F04D">01 — ICP & Scoring</button>
+    <button class="nav-item" data-target="enrichment" data-color="#C8F04D">02 — TAM & Enrichment</button>
+    <button class="nav-item" data-target="outreach" data-color="#C8F04D">03 — Outreach Motion</button>
+    <button class="nav-item" data-target="marketing" data-color="#C8F04D">04 — Marketing Motion</button>
+    <button class="nav-item" data-target="pitch" data-color="#C8F04D">05 — The Pitch</button>
+    <button class="nav-item" data-target="followup" data-color="#C8F04D">06 — Follow-Up Agent</button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label" style="color:#F0C84D99">Handoff — The Seam</div>
+    <button class="nav-item" data-target="handoff" data-color="#F0C84D">07 — Structured Handoff</button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label" style="color:#88AAFF99">CS — Activation & Retention</div>
+    <button class="nav-item" data-target="lir" data-color="#88AAFF">08 — LIR Framework</button>
+    <button class="nav-item" data-target="onboarding" data-color="#88AAFF">09 — Onboarding</button>
+    <button class="nav-item" data-target="activation" data-color="#88AAFF">10 — Activation</button>
+    <button class="nav-item" data-target="review" data-color="#88AAFF">11 — 45-Day Review</button>
+    <button class="nav-item" data-target="tiering" data-color="#88AAFF">12 — Scoring & Tiering</button>
+    <button class="nav-item" data-target="crosssell" data-color="#88AAFF">13 — Cross-Sell Engine</button>
+    <button class="nav-item" data-target="revops" data-color="#88AAFF">14 — RevOps Feedback</button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label" style="color:#FF888899">Master View</div>
+    <button class="nav-item" data-target="fullflow" data-color="#FF8888">15 — Full Loop</button>
+    <button class="nav-item" data-target="tracker" data-color="#FF8888">16 — Build Tracker</button>
+  </div>
+  <div class="sidebar-footer">
+    <div class="sidebar-footer-label">Deep Dives Pending</div>
+    <div class="sidebar-footer-item"><span class="sidebar-footer-dot">◎</span> RevOps Design</div>
+    <div class="sidebar-footer-item"><span class="sidebar-footer-dot">◎</span> Bottom 800 Playbook</div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<main class="content">
+
+<!-- 01 ICP -->
+<section class="section active" id="icp">
+  <div class="section-label" style="color:#C8F04D">GTM · 01</div>
+  <div class="section-title">Ideal Customer Profile</div>
+  <div class="section-subtitle">How we identify and score restaurants before any outreach begins. Everything downstream depends on getting this right.</div>
+
+  <div class="card">
+    <div class="card-title">Brand Power Signals</div>
+    <div class="row"><div class="row-label">Google Reviews</div><div class="row-value">Volume and rating — proxy for brand establishment, credibility, and cult following.</div></div>
+    <div class="row"><div class="row-label">Instagram Crawl</div><div class="row-value">Number of posts shared about the brand — proxy for virality and trendiness.<div class="row-sub">Both signals are crawled by the RevOps team and used to compute the brand power score.</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Restaurant Archetype</div>
+    <div class="row"><div class="row-label">Scored by</div><div class="row-value">Number of outlets + average spend per customer.</div></div>
+    <div class="row"><div class="row-label">Sweet spot</div><div class="row-value">Fast casual · Casual · Premium casual<div class="row-sub">High turnover, sufficient transaction count, enough data to generate real value for the merchant.</div></div></div>
+    <div class="row"><div class="row-label">Excluded — low end</div><div class="row-value">QSR — average spend too low to drive meaningful GMV.</div></div>
+    <div class="row"><div class="row-label">Excluded — high end</div><div class="row-value">Fine dining — spend high but transaction volume too low for data products to work.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Score Output</div>
+    <div class="row"><div class="row-label">High score pool</div><div class="row-value">Strong brand power + right archetype. Priority for direct sales outreach sprint.</div></div>
+    <div class="row"><div class="row-label">Low score pool</div><div class="row-value">Weaker signals. Reached via AI outreach and paid ads.</div></div>
+    <div class="row"><div class="row-label">Product suitability</div><div class="row-value">Score also determines which Oddle products fit — e.g. large-seating popular restaurants score high for Reserve. Feeds into the prospecting guide during pitch.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Lead Score — Current Model (0–100)</div>
+    <div class="row"><div class="row-label">What it is</div><div class="row-value">The current potential score. Computed by the RevOps pipeline and pushed to Attio automatically.</div></div>
+    <div class="row"><div class="row-label">Score components</div><div class="row-value">score_reviews (Google rating + review count) + score_ig_followers (Instagram size) + score_ig_recency (posting activity)</div></div>
+    <div class="row"><div class="row-label">Pipeline</div><div class="row-value">Apify GMB crawl → SerpAPI Instagram search → Apify Instagram crawl → weighted scoring → Attio CRM push. Runs on GCP, triggered from a single command.</div></div>
+    <div class="row"><div class="row-label">Used for</div><div class="row-value">ICP prioritisation (high score pool vs low score pool), prospecting guide generation, and the 'potential' axis in the CS 2×2 tiering matrix.</div></div>
+  </div>
+
+  <div class="card warn-card">
+    <div class="card-title" style="color:#F0C84D">Evolving → Total Potential Value Model</div>
+    <div class="row"><div class="row-label">Direction</div><div class="row-value">The lead_score will evolve into a sum of per-product potential values — a more precise ceiling for each merchant.<div class="row-sub">Total Potential Value = PV(Oddle Shop) + PV(Oddle Reserve) + PV(Oddle Enrolment)</div></div></div>
+    <div class="row"><div class="row-label">Why it's better</div><div class="row-value">Two restaurants with the same lead_score can have very different product fit profiles. TPV captures this — e.g. a large-seating restaurant scores high on Reserve PV even if its Instagram is quiet.</div></div>
+    <div class="row"><div class="row-label">Per-product PV formula</div><div class="row-value">Methodology pending — to be defined based on restaurant profile signals (outlet count, seating, spend per head, transaction volume, etc.) per product.<div class="row-sub">⚠ Once defined, this replaces lead_score as the potential axis in the 2×2 tiering matrix.</div></div></div>
+  </div>
+</section>
+
+<!-- 02 ENRICHMENT -->
+<section class="section" id="enrichment">
+  <div class="section-label" style="color:#C8F04D">GTM · 02</div>
+  <div class="section-title">TAM Crawl & Contact Enrichment</div>
+  <div class="section-subtitle">RevOps builds and enriches the full restaurant universe before outreach begins. Data quality here determines everything downstream.</div>
+
+  <div class="card">
+    <div class="card-title">TAM Crawl</div>
+    <div class="row"><div class="row-label">What</div><div class="row-value">RevOps team crawls the internet to build a complete universe of all restaurants in the market.</div></div>
+    <div class="row"><div class="row-label">Scored on</div><div class="row-value">Brand power (Google + Instagram), archetype (outlet count + spend per head), current tech stack.</div></div>
+    <div class="row"><div class="row-label">Tech stack mapped</div><div class="row-value">Whitelabel delivery / takeaway channels, marketplace presence, existing reservation solution type.<div class="row-sub">Tech stack feeds directly into the sales rep's prospecting guide — pain points pre-identified before the first call.</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Contact Enrichment</div>
+    <div class="row"><div class="row-label">Email</div><div class="row-value">Crawled from public sources and enriched per restaurant.</div></div>
+    <div class="row"><div class="row-label">Phone — outlet</div><div class="row-value">Store outlet number. Baseline contact for all restaurants.</div></div>
+    <div class="row"><div class="row-label">Phone — owner</div><div class="row-value">Owner or mobile number where findable. Significantly increases conversion when the decision maker is reached directly.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Pipeline Architecture (5 Steps)</div>
+    <div class="row"><div class="row-label">Step 1 — IG Enrichment + Lead Scoring</div><div class="row-value">SerpAPI finds Instagram handle → Apify crawls followers + last 5 posts → scoring computed (score_reviews, score_ig_followers, score_ig_recency → lead_score 0–100). Runs in parallel with Step 2.</div></div>
+    <div class="row"><div class="row-label">Step 2 — Tech Platform Detection</div><div class="row-value">SerpAPI searches delivery/reservation pages → fuzzy match + Claude Haiku validates → HTML scrape extracts delivery_partners and reservation_partner. Runs in parallel with Step 1.</div></div>
+    <div class="row"><div class="row-label">Step 3 — Merchant Matching</div><div class="row-value">Fuzzy + GPT-4o mini matches brand against existing merchants in BigQuery. Outputs is_existing_merchant and brand_id.</div></div>
+    <div class="row"><div class="row-label">Step 4 — Attio CRM Push</div><div class="row-value">Fetches or creates Attio record by place_id. Updates if exists, creates if new. Existing merchants flagged automatically.</div></div>
+    <div class="row"><div class="row-label">Step 5 — Contact Enrichment</div><div class="row-value">Swan tool runs independently. One brand → many contacts. Writes to separate contacts table. No dependency on CRM push.</div></div>
+    <div class="row"><div class="row-label">Infrastructure</div><div class="row-value">GCP Cloud Run + Scheduler. Apify, SerpAPI, Claude Haiku, GPT-4o mini, BigQuery, Attio, Swan. Pipeline is safe to rerun at any time — each step writes back to places_clean immediately.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">LLM Match Threshold</div>
+    <div class="row"><div class="row-label">&gt; 85% confidence</div><div class="row-value">Accept automatically.</div></div>
+    <div class="row"><div class="row-label">60–85% confidence</div><div class="row-value">LLM verification step triggered.</div></div>
+    <div class="row"><div class="row-label">&lt; 60% confidence</div><div class="row-value">Rejected.</div></div>
+  </div>
+
+  <div class="card warn2-card">
+    <div class="card-title" style="color:#F0C84D">Voice Agent — Owner Number Extraction</div>
+    <div class="row"><div class="row-label">What</div><div class="row-value">AI voice agent calls all restaurants and runs scripted sequences to extract the owner's direct number.</div></div>
+    <div class="row"><div class="row-label">Scripts</div><div class="row-value">Multiple variants tested and optimized for compliance and response rate.</div></div>
+    <div class="row"><div class="row-label">Why it matters</div><div class="row-value">Getting to the decision maker directly is the highest-leverage enrichment step in the whole GTM.</div></div>
+  </div>
+</section>
+
+<!-- 03 OUTREACH -->
+<section class="section" id="outreach">
+  <div class="section-label" style="color:#C8F04D">GTM · 03</div>
+  <div class="section-title">Outreach Motion</div>
+  <div class="section-subtitle">Three parallel channels running simultaneously to set appointments. All roads lead to the sales rep.</div>
+
+  <div class="card gtm-card">
+    <div class="card-title">Team Roles</div>
+    <div class="row"><div class="row-label">AI GTM Lead</div><div class="row-value">Owns the full outreach infrastructure. Domain setup, lead prep, content writing, Lemlist campaign build, n8n SDR agent build for both email and WhatsApp.</div></div>
+    <div class="row"><div class="row-label">Outreach Manager (SDR)</div><div class="row-value">Monitors Slack for AI-drafted replies, approves or rejects, updates Attio. Handles warm lead handoff, appointment reminders, and no-show follow-up. Reports to AI GTM Lead.</div></div>
+  </div>
+
+  <div class="channel-grid">
+    <div class="channel-card" style="background:#0A110A;border:1px solid #C8F04D33">
+      <div class="channel-num" style="color:#C8F04D">Channel 01</div>
+      <div class="channel-title">Paid Ads</div>
+      <div class="channel-item"><span style="color:#C8F04D">·</span> Meta + Google custom audiences</div>
+      <div class="channel-item"><span style="color:#C8F04D">·</span> Uploaded from enriched contact list</div>
+      <div class="channel-item"><span style="color:#C8F04D">·</span> Success stories, case studies, awareness content</div>
+      <div class="channel-item"><span style="color:#C8F04D">·</span> Goal: warm the market before direct outreach lands</div>
+    </div>
+    <div class="channel-card" style="background:#0A0A14;border:1px solid #88AAFF33">
+      <div class="channel-num" style="color:#88AAFF">Channel 02</div>
+      <div class="channel-title">AI Outreach Agent</div>
+      <div class="channel-item"><span style="color:#88AAFF">·</span> Email: 6-message sequence via Lemlist</div>
+      <div class="channel-item"><span style="color:#88AAFF">·</span> WhatsApp: 3–4 message sequence via Lemlist</div>
+      <div class="channel-item"><span style="color:#88AAFF">·</span> n8n SDR agent drafts replies → Slack → Outreach Manager approves</div>
+      <div class="channel-item"><span style="color:#88AAFF">·</span> Warm lead → appointment link → sales handoff</div>
+    </div>
+    <div class="channel-card" style="background:#110F0A;border:1px solid #F0C84D33">
+      <div class="channel-num" style="color:#F0C84D">Channel 03</div>
+      <div class="channel-title">Direct Sales Sprint</div>
+      <div class="channel-item"><span style="color:#F0C84D">·</span> High score pool only</div>
+      <div class="channel-item"><span style="color:#F0C84D">·</span> Sales rep calls directly to set appointment</div>
+      <div class="channel-item"><span style="color:#F0C84D">·</span> Sprint format — focused list, time-boxed</div>
+      <div class="channel-item"><span style="color:#F0C84D">·</span> Rep sets and runs their own appointments</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Email Infrastructure (AI GTM Lead)</div>
+    <div class="row"><div class="row-label">Domain purchase</div><div class="row-value">Winnr — max 5 email addresses per domain.</div></div>
+    <div class="row"><div class="row-label">Warmup</div><div class="row-value">2–3 weeks on Winnr until health score is satisfactory. Warmed emails added to Lemlist as sender accounts.</div></div>
+    <div class="row"><div class="row-label">Sequence</div><div class="row-value">6 emails per target segment, personalised by ICP and tech stack.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">WhatsApp Infrastructure (AI GTM Lead + Outreach Manager)</div>
+    <div class="row"><div class="row-label">Contact prep</div><div class="row-value">Mobile numbers extracted and verified as active on WhatsApp before upload.</div></div>
+    <div class="row"><div class="row-label">Campaign setup</div><div class="row-value">Outreach Manager creates template messages, uploads CSV manually per send, schedules campaign on Lemlist.</div></div>
+    <div class="row"><div class="row-label">Sequence</div><div class="row-value">3–4 messages per target segment.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">AI SDR Agent — How It Works (n8n)</div>
+    <div class="row"><div class="row-label">Build</div><div class="row-value">AI GTM Lead builds separate n8n agents for email and WhatsApp — each with localised prompt and objection handling logic.</div></div>
+    <div class="row"><div class="row-label">Reply flow</div><div class="row-value">Prospect replies → agent drafts response → surfaces in dedicated Slack channel → Outreach Manager approves or rejects.</div></div>
+    <div class="row"><div class="row-label">CRM</div><div class="row-value">Outreach Manager updates prospect status in Attio after every handled reply.</div></div>
+  </div>
+
+  <div class="card gtm-card">
+    <div class="card-title">Warm Lead Handling & Handoff (Outreach Manager)</div>
+    <div class="row"><div class="row-label">Interest shown</div><div class="row-value">Outreach Manager sends scheduling link for sales appointment.</div></div>
+    <div class="row"><div class="row-label">No booking after 1 day</div><div class="row-value">Outreach Manager sends reminder.</div></div>
+    <div class="row"><div class="row-label">Still no booking after 1 more day</div><div class="row-value">Sales follows up via direct call.</div></div>
+    <div class="row"><div class="row-label">Appointment booked</div><div class="row-value">Deal created in Attio. Outreach Manager creates WhatsApp group with sales rep and the lead.</div></div>
+    <div class="row"><div class="row-label">Before appointment</div><div class="row-value">Outreach Manager sends reminder to prospect.</div></div>
+    <div class="row"><div class="row-label">No-show</div><div class="row-value">Outreach Manager follows up to reschedule.</div></div>
+    <div class="row"><div class="row-label">Overlap note</div><div class="row-value">High score restaurants may appear in both AI outreach and direct sprint — first contact wins.</div></div>
+  </div>
+</section>
+
+<!-- 04 MARKETING -->
+<section class="section" id="marketing">
+  <div class="section-label" style="color:#C8F04D">GTM · 04</div>
+  <div class="section-title">Marketing Motion</div>
+  <div class="section-subtitle">Two jobs: build the brand so restaurants already know us before outreach lands, and generate MQLs that feed the sales pipeline.</div>
+
+  <div class="card gtm-card">
+    <div class="card-title">North Star Metric</div>
+    <div class="row"><div class="row-label">A win for marketing</div><div class="row-value">Marketing Qualified Lead (MQL) — a restaurant that has expressed interest and is ready for the Outreach Manager to qualify.</div></div>
+    <div class="row"><div class="row-label">MQL target</div><div class="row-value">Not yet formally defined.<div class="row-sub">⚠ Needs to be set and tied to the 130 deals/month July sales target. Work backwards from conversion rate to determine required MQL volume.</div></div></div>
+    <div class="row"><div class="row-label">Attribution</div><div class="row-value">Volume known. Source attribution is loose — roughly tracked by channel, not cleanly measured.<div class="row-sub">⚠ Clean attribution needed as spend scales.</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Content Engine</div>
+    <div class="row"><div class="row-label">TableTalk Newsletter</div><div class="row-value">Thought leadership on restaurant revenue playbook and F&amp;B industry trends. Insight-driven. Jon's personal brand play.<div class="row-sub">Audience: known contacts only — inquiries, churned merchants, existing clients. Not sent to cold prospects who have never been spoken to.</div></div></div>
+    <div class="row"><div class="row-label">Instagram Content</div><div class="row-value">AI-generated explainer videos repurposed from TableTalk content. Educational and insight-driven. Building organic followership.<div class="row-sub">Format: explainer and educational videos — not entertainment content.</div></div></div>
+    <div class="row"><div class="row-label">Success Stories</div><div class="row-value">Featured in ads and outreach. Proof points matched to merchant archetype.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Paid Ads — Primary MQL Driver</div>
+    <div class="row"><div class="row-label">Audiences</div><div class="row-value">Three audience types running simultaneously:</div></div>
+    <div class="row"><div class="row-label">1. Retargeting</div><div class="row-value">Website visitors and email engagers. Highest intent audience — already aware of Oddle.</div></div>
+    <div class="row"><div class="row-label">2. Custom audiences</div><div class="row-value">Uploaded email + phone numbers from enriched RevOps database. Targets restaurants already in the pipeline or known contacts.</div></div>
+    <div class="row"><div class="row-label">3. Broad ICP targeting</div><div class="row-value">Meta and Google targeting against restaurant owner/operator profiles in target markets.</div></div>
+    <div class="row"><div class="row-label">Creative angles</div><div class="row-value">Multiple ad angles run simultaneously — different value propositions shown to different segments. Success stories, product benefits, industry insights.</div></div>
+    <div class="row"><div class="row-label">Channels</div><div class="row-value">Meta + Google.</div></div>
+  </div>
+
+  <div class="card muted-card" style="border-color:#88AAFF33 !important">
+    <div class="card-title" style="color:#88AAFF">Brand Check — Lead Magnet</div>
+    <div class="row"><div class="row-label">What it is</div><div class="row-value">A free online tool that scans a restaurant's digital brand presence and generates a report.</div></div>
+    <div class="row"><div class="row-label">Report contents</div><div class="row-value">Google review volume and rating, local and global keyword ranking, social media activity signal.</div></div>
+    <div class="row"><div class="row-label">How it generates leads</div><div class="row-value">Restaurant fills in their details to receive the report. Oddle captures contact. Automated outreach message triggered immediately. Outreach Manager qualifies.</div></div>
+    <div class="row"><div class="row-label">Strategic role</div><div class="row-value">Captures restaurants who would not otherwise find Oddle — turns brand curiosity into a contactable lead.</div></div>
+    <div class="row"><div class="row-label">URL</div><div class="row-value">Pending — to be added.<div class="row-sub">⚠ Promotion strategy for Brand Check not yet defined. Should be featured prominently in ads, TableTalk, and Instagram.</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Inbound Lead Flow</div>
+    <div class="row"><div class="row-label">Entry points</div><div class="row-value">Form fill on website, or WhatsApp click-to-chat.</div></div>
+    <div class="row"><div class="row-label">Immediate response</div><div class="row-value">Automated WhatsApp message sent to the lead within seconds of form fill or WhatsApp initiation.</div></div>
+    <div class="row"><div class="row-label">Qualification</div><div class="row-value">Outreach Manager picks up and qualifies. MQL confirmed → Sales Rep assigned.</div></div>
+    <div class="row"><div class="row-label">Conversion goal on website</div><div class="row-value">Demo or consultation booking.</div></div>
+  </div>
+
+  <div class="card warn2-card">
+    <div class="card-title" style="color:#F0C84D">Open Gaps</div>
+    <div class="row"><div class="row-label">MQL target not set</div><div class="row-value">Marketing has no defined monthly MQL target tied to the sales pipeline. Without this, marketing and sales are not properly connected.</div></div>
+    <div class="row"><div class="row-label">Attribution not clean</div><div class="row-value">Volume is known but source is loosely tracked. As ad spend scales, this becomes a budget allocation problem.</div></div>
+    <div class="row"><div class="row-label">TableTalk reach limited</div><div class="row-value">Currently only sent to known contacts. Cold prospects in the RevOps database are not receiving any content before outreach lands — a warm-up opportunity being missed.</div></div>
+    <div class="row"><div class="row-label">Brand Check promotion undefined</div><div class="row-value">The lead magnet exists but there is no defined promotion strategy for it across ads, Instagram, or TableTalk.</div></div>
+  </div>
+</section>
+
+<!-- 05 PITCH -->
+<section class="section" id="pitch">
+  <div class="section-label" style="color:#C8F04D">GTM · 05</div>
+  <div class="section-title">The Pitch</div>
+  <div class="section-subtitle">What happens in the room — and how we win consistently.</div>
+
+  <div class="card">
+    <div class="card-title">Pitch Structure</div>
+    <div class="row"><div class="row-label">Duration</div><div class="row-value">30 to 45 minutes.</div></div>
+    <div class="row"><div class="row-label">Win rate</div><div class="row-value">60%<div class="row-sub">A deal is only marked lost when the restaurant explicitly declines. Everything else stays in active pipeline.</div></div></div>
+    <div class="row"><div class="row-label">Pre-call prep</div><div class="row-value">Lead pre-enriched with tech stack. Prospecting guide tells rep which pain points to lead with.</div></div>
+    <div class="row"><div class="row-label">Proof points</div><div class="row-value">Success stories matched to restaurant archetype — available to rep during pitch.</div></div>
+    <div class="row"><div class="row-label">Lead product</div><div class="row-value">All Access sold leading with a single hero product. Singapore: Oddle Shop. Other markets: Oddle Reserve also used as lead-in.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Post-Pitch Outcomes</div>
+    <div class="row"><div class="row-label">Won</div><div class="row-value">Contract signed → Structured Handoff initiated immediately.</div></div>
+    <div class="row"><div class="row-label">In negotiation</div><div class="row-value">Deal logged in Attio. Follow-Up Agent takes over.</div></div>
+    <div class="row"><div class="row-label">Lost</div><div class="row-value">Marked rejected in Attio. Removed from active pipeline.</div></div>
+  </div>
+
+  <div class="card warn2-card">
+    <div class="card-title" style="color:#F0C84D">Sales Velocity & Targets</div>
+    <div class="row"><div class="row-label">Average close</div><div class="row-value">~20 days from pitch to signed contract.</div></div>
+    <div class="row"><div class="row-label">Long tail</div><div class="row-value">Some deals take up to 60 days — larger brands requiring internal sign-off.</div></div>
+    <div class="row"><div class="row-label">Rep target</div><div class="row-value">10 signed deals per month per rep.</div></div>
+    <div class="row"><div class="row-label">March target</div><div class="row-value">50 deals total.</div></div>
+    <div class="row"><div class="row-label">July target</div><div class="row-value">130 deals total — new hires must be hired, trained and ramped by then.</div></div>
+  </div>
+</section>
+
+<!-- 06 FOLLOW-UP AGENT -->
+<section class="section" id="followup">
+  <div class="section-label" style="color:#C8F04D">GTM · 06</div>
+  <div class="section-title">Follow-Up Agent</div>
+  <div class="section-subtitle">Keeps warm deals moving without the sales rep having to remember. Rep is only pulled in when a human touch is needed.</div>
+
+  <div class="card">
+    <div class="card-title">The Problem It Solves</div>
+    <div class="row"><div class="row-label">Root cause</div><div class="row-value">Reps carry a rolling 90-day pipeline. As pitch volume grows, follow-ups on in-negotiation deals get dropped — not by neglect, but by crowding.</div></div>
+    <div class="row"><div class="row-label">Why deals go quiet</div><div class="row-value">Owners drag their feet, got busy and forgot, feel no urgency, or are half-convinced and need one more push.</div></div>
+    <div class="row"><div class="row-label">Key insight</div><div class="row-value">If it's still in negotiation, it is not a no. The agent's job is to remove friction and create urgency.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Trigger Logic</div>
+    <div class="trigger-header">
+      <div>Situation</div><div class="center">Channel</div><div>Action</div>
+    </div>
+    <div class="trigger-row">
+      <div class="trigger-situation">Post-pitch, no response after 3 days</div>
+      <div class="trigger-channel"><span>WhatsApp</span></div>
+      <div class="trigger-action">Agent sends friendly nudge referencing the pitch.</div>
+    </div>
+    <div class="trigger-row">
+      <div class="trigger-situation">Still no response after 5 more days</div>
+      <div class="trigger-channel"><span>Email</span></div>
+      <div class="trigger-action">Agent sends success story matched to archetype.</div>
+    </div>
+    <div class="trigger-row">
+      <div class="trigger-situation">Still no response after 7 more days</div>
+      <div class="trigger-channel"><span>Call</span></div>
+      <div class="trigger-action">Agent flags to rep — rep makes direct call.</div>
+    </div>
+    <div class="trigger-row">
+      <div class="trigger-situation">Contract sent, not signed after 3 days</div>
+      <div class="trigger-channel"><span>WhatsApp</span></div>
+      <div class="trigger-action">"Any questions on the contract?"</div>
+    </div>
+    <div class="trigger-row">
+      <div class="trigger-situation">Contract still unsigned after 7 days</div>
+      <div class="trigger-channel"><span>Call</span></div>
+      <div class="trigger-action">Agent flags to rep — rep calls to close.</div>
+    </div>
+    <div class="trigger-row">
+      <div class="trigger-situation">Deal idle in negotiation 30+ days</div>
+      <div class="trigger-channel"><span>WhatsApp</span></div>
+      <div class="trigger-action">Re-engagement with time-limited hook, then flags to rep.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Source of Truth</div>
+    <div class="row"><div class="row-label">System</div><div class="row-value">Attio. All deal state lives here. Agent reads from and logs back to Attio automatically.</div></div>
+    <div class="row"><div class="row-label">Rep's view</div><div class="row-value">Daily digest of deals that need personal attention — only what the agent couldn't move.</div></div>
+  </div>
+</section>
+
+<!-- 07 HANDOFF -->
+<section class="section" id="handoff">
+  <div class="section-label" style="color:#F0C84D">Handoff · 07</div>
+  <div class="section-title">Structured Handoff</div>
+  <div class="section-subtitle">The single highest-leverage intervention point in the entire revenue loop. This is where GTM ends and CS begins.</div>
+
+  <div class="card warn-card">
+    <div class="card-title" style="color:#F0C84D">Why This Is the Seam</div>
+    <div class="row"><div class="row-label">The principle</div><div class="row-value">Most retention issues originate in sales and marketing, not in product or CS. The expectations set during the sales process are the most important driver of LIR achievement.</div></div>
+    <div class="row"><div class="row-label">The gate</div><div class="row-value">No handoff document = no onboarding begins. This is a hard gate enforced in Attio.</div></div>
+    <div class="row"><div class="row-label">Current status</div><div class="row-value">Partially built in Attio. Some fields exist. Full template not yet enforced.<div class="row-sub">⚠ This is the most critical gap between the two playbooks right now.</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#F0C84D">Handoff Document Fields (in Attio)</div>
+    <div class="row"><div class="row-label">Brand name & contacts</div><div class="row-value">Key decision maker, day-to-day operator, WhatsApp contacts.<div class="row-sub">Ensures CS engages the right people.</div></div></div>
+    <div class="row"><div class="row-label">Pre-sign score</div><div class="row-value">Score from RevOps lead scoring model.<div class="row-sub">Sets initial expectations for potential.</div></div></div>
+    <div class="row"><div class="row-label">Lead product</div><div class="row-value">Which product the merchant was primarily sold on.<div class="row-sub">Determines onboarding sequence.</div></div></div>
+    <div class="row"><div class="row-label">Additional products discussed</div><div class="row-value">Other products mentioned or demoed during sales.<div class="row-sub">Informs cross-sell timing.</div></div></div>
+    <div class="row"><div class="row-label">Merchant's stated goal</div><div class="row-value">What the merchant said they want to achieve — in their words.<div class="row-sub">Anchors the 45-day review conversation.</div></div></div>
+    <div class="row"><div class="row-label">Promises made</div><div class="row-value">Any specific commitments from the sales rep.<div class="row-sub">Prevents expectation gaps.</div></div></div>
+    <div class="row"><div class="row-label">Expected go-live date</div><div class="row-value">When merchant wants to be live.<div class="row-sub">Sets onboarding SLA clock.</div></div></div>
+    <div class="row"><div class="row-label">Restaurant profile</div><div class="row-value">Cuisine, location(s), covers/day, avg check size, current tech.<div class="row-sub">Enables best-in-class setup.</div></div></div>
+    <div class="row"><div class="row-label">Risk flags</div><div class="row-value">Any concerns raised during sales, competitor usage.<div class="row-sub">Enables proactive intervention.</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#F0C84D">Handoff Call (Internal — 15 mins)</div>
+    <div class="row"><div class="row-label">Who</div><div class="row-value">Sales rep + CSM + onboarding lead. Merchant is NOT on this call.</div></div>
+    <div class="row"><div class="row-label">Agenda</div><div class="row-value">Sales rep walks the handoff doc. CSM clarifies merchant expectations. Onboarding lead confirms setup requirements and timeline. Agree on who sends the welcome message.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#F0C84D">Merchant Kick-Off (Within 24 Hours)</div>
+    <div class="row"><div class="row-label">Channel</div><div class="row-value">WhatsApp message to merchant group chat from CSM.</div></div>
+    <div class="row"><div class="row-label">Content</div><div class="row-value">Welcome + intro to CS team, onboarding timeline with specific dates, what merchant needs to prepare, first meeting scheduled.</div></div>
+  </div>
+</section>
+
+<!-- 08 LIR -->
+<section class="section" id="lir">
+  <div class="section-label" style="color:#88AAFF">CS · 08</div>
+  <div class="section-title">LIR Framework</div>
+  <div class="section-subtitle">Leading Indicator of Retention. The single north star metric for the entire CS motion.</div>
+
+  <div class="card cs-card">
+    <div class="card-title" style="color:#88AAFF">Core Definition</div>
+    <div class="row"><div class="row-label">LIR achieved when</div><div class="row-value">Monthly Product Value ≥ $215<div class="row-sub">Within the first 30 days of going live.</div></div></div>
+    <div class="row"><div class="row-label">Formula</div><div class="row-value">(Shop GMV × $0.50) + (Reserve Bookings × $2) + (Enrolments × $1)</div></div>
+    <div class="row"><div class="row-label">Cohort target</div><div class="row-value">60% of merchants hit LIR within 30 days of going live.</div></div>
+    <div class="row"><div class="row-label">Why it matters</div><div class="row-value">LIR is the leading indicator — it tells us whether a merchant will renew before we see the lagging indicator of actual retention.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Per-Product Standalone Thresholds</div>
+    <div class="row"><div class="row-label">Oddle Shop</div><div class="row-value">$500 GMV/month<div class="row-sub">$1 GMV = $0.50 value → $250 value</div></div></div>
+    <div class="row"><div class="row-label">Oddle Reserve</div><div class="row-value">100 bookings/month<div class="row-sub">$2 per booking → $200 value</div></div></div>
+    <div class="row"><div class="row-label">Oddle Enrolment</div><div class="row-value">200 enrolments/month<div class="row-sub">$1 per enrolment → $200 value</div></div></div>
+  </div>
+
+  <div class="card muted-card">
+    <div class="card-title" style="color:#88AAFF">Composite LIR (Multi-Product)</div>
+    <div class="row"><div class="row-label">The insight</div><div class="row-value">A merchant struggling to hit LIR on a single product may be one additional product away from strong retention. Cross-selling is a retention play, not just a revenue play.</div></div>
+    <div class="row"><div class="row-label">Example</div><div class="row-value">Shop $300 GMV ($150) + Reserve 50 bookings ($100) + Enrolment 100 ($100) = $350 total — exceeds $215 threshold even though none hit standalone LIR.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">LIR Cohort Dashboard</div>
+    <div class="row"><div class="row-label">Format</div><div class="row-value">BigQuery → automated. Each row = cohort of merchants that went live in a given month. Each column = % achieving LIR by month 1, 2, 3 etc.</div></div>
+    <div class="row"><div class="row-label">Status</div><div class="row-value">Being built right now.</div></div>
+    <div class="row"><div class="row-label">Priority</div><div class="row-value">This should be the first slide in every board deck — ahead of revenue. It is the leading indicator of business health.</div></div>
+  </div>
+</section>
+
+<!-- 09 ONBOARDING -->
+<section class="section" id="onboarding">
+  <div class="section-label" style="color:#88AAFF">CS · 09</div>
+  <div class="section-title">Onboarding</div>
+  <div class="section-subtitle">Day 0 to 5. Onboarding team owns this. Every setup decision is evaluated against its impact on LIR achievement.</div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">SLAs — Non-Negotiable</div>
+    <div class="row"><div class="row-label">Oddle Reserve</div><div class="row-value">Live within 2 working days.<div class="row-sub">Clock starts from when merchant provides all required materials.</div></div></div>
+    <div class="row"><div class="row-label">Oddle Shop</div><div class="row-value">Live within 5 working days.</div></div>
+    <div class="row"><div class="row-label">Oddle Enrolment</div><div class="row-value">Live within 5 working days.</div></div>
+    <div class="row"><div class="row-label">If merchant delays</div><div class="row-value">Clock pauses — but team proactively chases within 48 hours.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Best-in-Class Setup Standards</div>
+    <div class="row"><div class="row-label">Oddle Shop</div><div class="row-value">Full menu with photos, optimised categories, upsell items configured, competitive delivery fees.<div class="row-sub">Menu structure: bundles first → signature sets → typical dishes.</div></div></div>
+    <div class="row"><div class="row-label">Oddle Reserve</div><div class="row-value">Accurate floor plan, peak/off-peak booking rules, automated confirmations, booking widget on Google.</div></div>
+    <div class="row"><div class="row-label">Oddle Enrolment</div><div class="row-value">Tiered rewards aligned to actual visit frequency, automated campaigns set, integration complete.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Activation Checklist</div>
+    <div class="row"><div class="row-label">Social channels</div><div class="row-value">Restaurant linked to their direct social media.</div></div>
+    <div class="row"><div class="row-label">Website integration</div><div class="row-value">Oddle Shop connected to restaurant's website.</div></div>
+    <div class="row"><div class="row-label">Data import</div><div class="row-value">If existing reservation system or customer database — import, launch EDM, activate.</div></div>
+    <div class="row"><div class="row-label">Stripe setup</div><div class="row-value">Restaurant sets up own Stripe account, guided by Oddle team.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Multi-Product Sequencing</div>
+    <div class="row"><div class="row-label">Day 1–2</div><div class="row-value">Reserve goes live first — quick win while more complex setups are in progress.</div></div>
+    <div class="row"><div class="row-label">Day 1–5</div><div class="row-value">Shop and Enrolment set up in parallel.</div></div>
+    <div class="row"><div class="row-label">Day 5</div><div class="row-value">All products live. Activation phase begins.</div></div>
+  </div>
+</section>
+
+<!-- 10 ACTIVATION -->
+<section class="section" id="activation">
+  <div class="section-label" style="color:#88AAFF">CS · 10</div>
+  <div class="section-title">Activation</div>
+  <div class="section-subtitle">Day 5 to 35. The highest-risk window. Merchant is live but usage not yet established. This is where LIR is won or lost.</div>
+
+  <div class="card cs-card">
+    <div class="card-title" style="color:#88AAFF">LIR Pacing Dashboard</div>
+    <div class="row"><div class="row-label">What</div><div class="row-value">Real-time dashboard (BigQuery → automated) tracking each merchant's progress toward their LIR events.</div></div>
+    <div class="row"><div class="row-label">Who uses it</div><div class="row-value">CSM reviews daily for their portfolio.</div></div>
+    <div class="row"><div class="row-label">Status</div><div class="row-value">Being built right now.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">CSM Intervention Triggers</div>
+    <div class="row"><div class="row-label">Off-track alert</div><div class="row-value">Merchant not on pace for LIR by Day 30 — CSM intervenes with diagnostic call.</div></div>
+    <div class="row"><div class="row-label">At-risk alert</div><div class="row-value">Usage dropping or flat for 7+ days — CSM reaches out via WhatsApp.</div></div>
+    <div class="row"><div class="row-label">Setup issue</div><div class="row-value">If low usage is traced to a setup problem — escalate to onboarding team for fix.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Activation Levers by Product</div>
+    <div class="row"><div class="row-label">Oddle Shop</div><div class="row-value">Delivery fee optimization, menu completeness, promo campaigns, social media posts driving traffic.</div></div>
+    <div class="row"><div class="row-label">Oddle Reserve</div><div class="row-value">Booking widget live on all channels (website, Google, Instagram). Staff trained to mention it to walk-ins.</div></div>
+    <div class="row"><div class="row-label">Oddle Enrolment</div><div class="row-value">QR codes at tables, staff trained to prompt sign-up, first campaign sent within 2 weeks of going live.</div></div>
+  </div>
+</section>
+
+<!-- 11 45-DAY REVIEW -->
+<section class="section" id="review">
+  <div class="section-label" style="color:#88AAFF">CS · 11</div>
+  <div class="section-title">45-Day Review</div>
+  <div class="section-subtitle">The most important checkpoint in the merchant lifecycle. Assess LIR, build the relationship, identify cross-sell.</div>
+
+  <div class="card cs-card">
+    <div class="card-title" style="color:#88AAFF">Review Structure</div>
+    <div class="row"><div class="row-label">Format</div><div class="row-value">Auto-generated deck (BigQuery → template). CSM presents, doesn't build from scratch.</div></div>
+    <div class="row"><div class="row-label">Status</div><div class="row-value">Automation planned — Phase 2, week 5–8.</div></div>
+    <div class="row"><div class="row-label">Agenda</div><div class="row-value">LIR achievement vs target, product usage breakdown, what's working, what isn't, cross-sell opportunity analysis, next 90-day plan.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Decision Gate — Tiering</div>
+    <div class="row"><div class="row-label">Assessment</div><div class="row-value">Merchant assessed against 2×2 matrix (potential score vs current ability). Two outcomes.</div></div>
+    <div class="row"><div class="row-label">Top 20%</div><div class="row-value">→ KAM. Dedicated account manager, quarterly business reviews, strategic growth planning.</div></div>
+    <div class="row"><div class="row-label">Everyone else</div><div class="row-value">→ PV-driven scaled motion. Content targeted by highest unrealised product PV. Expansion Role escalation when PV threshold crossed.</div></div>
+    <div class="row"><div class="row-label">Fail — no recovery</div><div class="row-value">→ Bottom 800 pool. Bottom 800 Playbook covers this (to be designed).</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Cross-Sell at 45 Days</div>
+    <div class="row"><div class="row-label">Single product, LIR achieved</div><div class="row-value">CSM presents opportunity analysis — projected value from adding second product.</div></div>
+    <div class="row"><div class="row-label">Single product, LIR not achieved</div><div class="row-value">Show how adding a second product could close the LIR gap. Retention framing, not sales framing.</div></div>
+  </div>
+</section>
+
+<!-- 12 TIERING -->
+<section class="section" id="tiering">
+  <div class="section-label" style="color:#88AAFF">CS · 12</div>
+  <div class="section-title">Scoring & Tiering</div>
+  <div class="section-subtitle">The 2×2 matrix routes every merchant to the right engagement model. Potential vs current ability.</div>
+
+  <div class="quad-grid">
+    <div class="quad-card" style="border-color:#4ADE8033">
+      <div class="quad-tier" style="color:#4ADE80">KAM</div>
+      <div class="quad-label">Hidden Champions</div>
+      <div class="quad-archetype">High Potential + High Performance</div>
+      <div class="quad-desc">KAM-led. Drive multi-product adoption and reference account status. Quarterly business reviews.</div>
+    </div>
+    <div class="quad-card" style="border-color:#88AAFF33">
+      <div class="quad-tier" style="color:#88AAFF">PV-Scaled</div>
+      <div class="quad-label">Overperformers</div>
+      <div class="quad-archetype">Low Potential + High Performance</div>
+      <div class="quad-desc">PV-targeted scaled content. Feed scoring model data back to RevOps — what did we miss?</div>
+    </div>
+    <div class="quad-card" style="border-color:#F0C84D33">
+      <div class="quad-tier" style="color:#F0C84D">PV-Scaled → Expansion</div>
+      <div class="quad-label">Hidden Gems ⚠</div>
+      <div class="quad-archetype">High Potential + Low Performance</div>
+      <div class="quad-desc">High PV signal triggers escalation to Expansion Role for diagnostic. 30-day recovery plan.</div>
+    </div>
+    <div class="quad-card" style="border-color:#F8717133">
+      <div class="quad-tier" style="color:#F87171">PV-Scaled</div>
+      <div class="quad-label">Nurture</div>
+      <div class="quad-archetype">Low Potential + Low Performance</div>
+      <div class="quad-desc">PV-targeted scaled content. Email + WhatsApp segmented by highest unrealised product PV. Surfaces to Expansion Role if they engage.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Tier Definitions — Post 45-Day Review</div>
+    <div class="row"><div class="row-label">First 45 days — all merchants</div><div class="row-value">CSM owns this window without exception. Onboarding, activation, LIR drive. No tiering yet.</div></div>
+    <div class="row"><div class="row-label">Tier 1 — KAM (top 20%)</div><div class="row-value">Dedicated KAM. Quarterly business reviews, strategic growth planning, priority support.</div></div>
+    <div class="row"><div class="row-label">Tier 2 — PV-Driven Scaled Motion</div><div class="row-value">PV-targeted email and WhatsApp content for all non-KAM merchants. Content segmented by each merchant's highest unrealised product PV — not generic. When PV signal for a specific product crosses a threshold, escalates to the Expansion Role for human follow-up.<div class="row-sub">No distinction between middle 50% and bottom 30% — the PV engine handles segmentation automatically.</div></div></div>
+  </div>
+
+  <div class="card warn2-card">
+    <div class="card-title" style="color:#F0C84D">⚠ New Role — Product Expansion (Seat to Design)</div>
+    <div class="row"><div class="row-label">What they own</div><div class="row-value">Product adoption and expansion for all non-KAM merchants where PV threshold is crossed. Not onboarding, not strategic account management.</div></div>
+    <div class="row"><div class="row-label">Trigger</div><div class="row-value">Merchant's PV for a second product crosses a defined threshold. System escalates automatically.</div></div>
+    <div class="row"><div class="row-label">Channel</div><div class="row-value">Email and WhatsApp primarily. Human engagement reserved for high-PV escalations.</div></div>
+    <div class="row"><div class="row-label">Why not CSM</div><div class="row-value">CSM will have their plate full with new merchant onboarding as acquisition scales. This keeps CS focused on activation and LIR.</div></div>
+    <div class="row"><div class="row-label">Status</div><div class="row-value">Seat designed. Not yet filled. PV-driven scaled motion runs in the interim.</div></div>
+  </div>
+
+  <div class="card warn2-card">
+    <div class="card-title" style="color:#F0C84D">Hidden Gems — Recovery Playbook</div>
+    <div class="row"><div class="row-label">Root cause 1</div><div class="row-value">Setup issue — product not configured optimally (menu incomplete, booking widget not on Google).</div></div>
+    <div class="row"><div class="row-label">Root cause 2</div><div class="row-value">Awareness issue — merchant not promoting the product to their customers.</div></div>
+    <div class="row"><div class="row-label">Root cause 3</div><div class="row-value">Execution issue — staff not trained to support the product.</div></div>
+    <div class="row"><div class="row-label">Root cause 4</div><div class="row-value">Expectation issue — merchant expected a different outcome from sales promises.</div></div>
+    <div class="row"><div class="row-label">Action</div><div class="row-value">CSM diagnostic call → 30-day recovery plan. If recovered: move up tier. If not: flag pre-sign score to RevOps for model adjustment.</div></div>
+  </div>
+</section>
+
+<!-- 13 CROSS-SELL -->
+<section class="section" id="crosssell">
+  <div class="section-label" style="color:#88AAFF">CS · 13</div>
+  <div class="section-title">Cross-Sell Engine</div>
+  <div class="section-subtitle">Activating products merchants already have access to. Currently a gap — this is the design.</div>
+
+  <div class="card cs-card">
+    <div class="card-title" style="color:#88AAFF">The Strategic Framing</div>
+    <div class="row"><div class="row-label">Not a sales motion</div><div class="row-value">With All Access, every merchant already has access to all products. Cross-sell is about activation, not selling a new contract.</div></div>
+    <div class="row"><div class="row-label">Retention framing</div><div class="row-value">Multi-product merchants are structurally stickier. If Shop GMV dips one month, Reserve bookings may compensate. Cross-sell is a retention play first.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Cross-Sell Triggers</div>
+    <div class="xsell-header">
+      <div>Trigger</div><div>Condition</div><div>Action</div><div>Channel</div>
+    </div>
+    <div class="xsell-row">
+      <div style="color:#88AAFF;font-size:12px;font-weight:600">45-Day Review</div>
+      <div style="color:#AAA;font-size:12px">1 product, LIR achieved</div>
+      <div style="color:#E8E8E8;font-size:12px">CSM presents opportunity analysis — projected value from adding product</div>
+      <div style="color:#666;font-size:11px">CSM-led</div>
+    </div>
+    <div class="xsell-row">
+      <div style="color:#88AAFF;font-size:12px;font-weight:600">LIR Gap</div>
+      <div style="color:#AAA;font-size:12px">1 product, LIR not achieved</div>
+      <div style="color:#E8E8E8;font-size:12px">Show how adding a second product could close the LIR gap</div>
+      <div style="color:#666;font-size:11px">CSM-led</div>
+    </div>
+    <div class="xsell-row">
+      <div style="color:#88AAFF;font-size:12px;font-weight:600">Usage Spike</div>
+      <div style="color:#AAA;font-size:12px">One product performing well above benchmark</div>
+      <div style="color:#E8E8E8;font-size:12px">Suggest complementary product (e.g. high Shop GMV → Reserve for dine-in)</div>
+      <div style="color:#666;font-size:11px">Automated</div>
+    </div>
+    <div class="xsell-row">
+      <div style="color:#88AAFF;font-size:12px;font-weight:600">Seasonal Trigger</div>
+      <div style="color:#AAA;font-size:12px">Approaching peak period</div>
+      <div style="color:#E8E8E8;font-size:12px">Product-specific content on maximising the season</div>
+      <div style="color:#666;font-size:11px">Email sequence</div>
+    </div>
+    <div class="xsell-row" style="border-bottom:none">
+      <div style="color:#88AAFF;font-size:12px;font-weight:600">Peer Benchmark</div>
+      <div style="color:#AAA;font-size:12px">Similar restaurants using multiple products</div>
+      <div style="color:#E8E8E8;font-size:12px">Anonymised benchmarks as social proof</div>
+      <div style="color:#666;font-size:11px">Automated email</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">3-Channel Content Engine</div>
+    <div class="row"><div class="row-label">Email sequences</div><div class="row-value">Week 6: case study from similar restaurant. Week 8: personalised projection ('Product X could add $Y/month'). Week 10: CTA to activate.</div></div>
+    <div class="row"><div class="row-label">WhatsApp broadcast</div><div class="row-value">Bi-weekly content drops — success stories, best practices, soft product introductions, seasonal playbooks.</div></div>
+    <div class="row"><div class="row-label">CSM-led (reviews)</div><div class="row-value">Auto-generated opportunity analysis slide. CSM presents data, doesn't build the case from scratch.</div></div>
+  </div>
+</section>
+
+<!-- 14 REVOPS -->
+<section class="section" id="revops">
+  <div class="section-label" style="color:#88AAFF">CS · 14</div>
+  <div class="section-title">RevOps Feedback Loop</div>
+  <div class="section-subtitle">The scoring model is only as good as its ability to predict outcomes. This loop is what makes it improve over time.</div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">What Feeds Back to RevOps</div>
+    <div class="row"><div class="row-label">LIR by lead score band</div><div class="row-value">Are high-scored leads actually achieving LIR? If not, the scoring model is wrong.</div></div>
+    <div class="row"><div class="row-label">Hidden Gems</div><div class="row-value">High potential, low performance. The model overweighted certain signals — which ones?</div></div>
+    <div class="row"><div class="row-label">Overperformers</div><div class="row-value">Low potential, high performance. What did the scoring model miss?</div></div>
+    <div class="row"><div class="row-label">Time to LIR by segment</div><div class="row-value">Which segments achieve LIR fastest? This should inform sales targeting.</div></div>
+    <div class="row"><div class="row-label">Churn reasons</div><div class="row-value">Why are merchants leaving? Does this correlate with any pre-sign signals?</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:#88AAFF">Feedback Cadence</div>
+    <div class="row"><div class="row-label">Monthly</div><div class="row-value">Automated dashboard — LIR achievement by lead score band, segment, and product. Shared with RevOps automatically.</div></div>
+    <div class="row"><div class="row-label">Quarterly</div><div class="row-value">CS + RevOps alignment meeting. Review 2×2 matrix, identify scoring model improvements, agree on targeting adjustments.</div></div>
+    <div class="row"><div class="row-label">Ad hoc</div><div class="row-value">CSMs flag individual cases where scoring was significantly off — via a structured form in Attio.</div></div>
+  </div>
+
+  <div class="card muted-card">
+    <div class="card-title" style="color:#88AAFF">The Virtuous Cycle</div>
+    <div class="cycle-text">
+      Better scoring → Better targeting → Higher-quality sign-ups<br>
+      → Higher LIR achievement → Better retention → More data → Better scoring
+    </div>
+    <div class="row" style="margin-top:12px"><div class="row-label">Long-term goal</div><div class="row-value">Pre-sign potential score converges with actual current ability — sales is consistently signing merchants who succeed.</div></div>
+  </div>
+</section>
+
+<!-- 15 FULL LOOP -->
+<section class="section" id="fullflow">
+  <div class="section-label" style="color:#FF8888">Master · 15</div>
+  <div class="section-title">Full Revenue Loop</div>
+  <div class="section-subtitle">End to end — from TAM crawl to RevOps feedback. One loop. Two playbooks. One seam.</div>
+
+  <div class="flow-diagram">
+    <!-- GTM section -->
+    <div class="flow-section-label">
+      <div class="flow-bar" style="background:#C8F04D"></div>
+      <div class="flow-section-text" style="color:#C8F04D">GTM — New Acquisition</div>
+    </div>
+
+    <div class="flow-nodes" style="margin-bottom:0">
+      <div class="flow-node" style="border:1px solid #C8F04D33">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#C8F04D22;border:1px solid #C8F04D55;color:#C8F04D">1</div>
+          <div class="flow-node-name">TAM Crawl</div>
+        </div>
+        <div class="flow-node-sub">RevOps scores all restaurants</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div><div class="flow-arrow-head">▶</div></div>
+      <div class="flow-node" style="border:1px solid #C8F04D33">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#C8F04D22;border:1px solid #C8F04D55;color:#C8F04D">2</div>
+          <div class="flow-node-name">Enrich Contacts</div>
+        </div>
+        <div class="flow-node-sub">Email, phone, owner number</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div><div class="flow-arrow-head">▶</div></div>
+      <div class="flow-node" style="border:1px solid #C8F04D33">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#C8F04D22;border:1px solid #C8F04D55;color:#C8F04D">3</div>
+          <div class="flow-node-name">3-Channel Outreach</div>
+        </div>
+        <div class="flow-node-sub">Ads · AI Agent · Direct Sprint</div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end">
+      <div style="width:33%;display:flex;flex-direction:column;align-items:center;padding:6px 0">
+        <div style="width:1px;height:16px;background:#2A2A2A"></div>
+        <div style="color:#2A2A2A;font-size:12px;line-height:0.5">▼</div>
+      </div>
+    </div>
+
+    <div class="flow-nodes">
+      <div style="flex:1"></div>
+      <div style="flex:1"></div>
+      <div class="flow-node" style="border:1px solid #C8F04D33;flex:1">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#C8F04D22;border:1px solid #C8F04D55;color:#C8F04D">C</div>
+          <div class="flow-node-name">Outreach Manager</div>
+        </div>
+        <div class="flow-node-sub">Books appointments from AI replies</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div><div class="flow-arrow-head">▶</div></div>
+      <div class="flow-node" style="border:1px solid #C8F04D33;flex:1">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#C8F04D22;border:1px solid #C8F04D55;color:#C8F04D">4</div>
+          <div class="flow-node-name">Pitch & Close</div>
+        </div>
+        <div class="flow-node-sub">60% win rate · 30–45 mins</div>
+      </div>
+    </div>
+
+    <!-- Branch: Won / Negotiation / Lost -->
+    <div style="display:flex;justify-content:flex-end">
+      <div style="width:48%;display:flex;flex-direction:column;align-items:center">
+        <div style="width:1px;height:12px;background:#2A2A2A"></div>
+        <div style="color:#2A2A2A;font-size:12px;line-height:0.5">▼</div>
+        <div class="branch-row" style="margin-top:6px">
+          <div class="branch-item" style="background:#4ADE8011;border-color:#4ADE8033">
+            <div class="branch-label" style="color:#4ADE80">Won</div>
+            <div class="branch-desc">→ Handoff</div>
+          </div>
+          <div class="branch-item" style="background:#F0C84D11;border-color:#F0C84D33">
+            <div class="branch-label" style="color:#F0C84D">Negotiation</div>
+            <div class="branch-desc">→ Follow-Up Agent</div>
+          </div>
+          <div class="branch-item" style="background:#F8717111;border-color:#F8717133">
+            <div class="branch-label" style="color:#F87171">Lost</div>
+            <div class="branch-desc">Rejected in Attio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seam -->
+    <div class="seam-divider">
+      <div class="seam-label">⬡ Structured Handoff — The Seam</div>
+    </div>
+
+    <!-- CS section -->
+    <div class="flow-section-label" style="margin-top:4px">
+      <div class="flow-bar" style="background:#88AAFF"></div>
+      <div class="flow-section-text" style="color:#88AAFF">CS — Activation & Retention</div>
+    </div>
+
+    <div class="flow-nodes">
+      <div class="flow-node" style="border:1px solid #88AAFF33">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#88AAFF22;border:1px solid #88AAFF55;color:#88AAFF">5</div>
+          <div class="flow-node-name">Onboarding</div>
+        </div>
+        <div class="flow-node-sub">Day 0–5 · SLAs · Setup</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div><div class="flow-arrow-head">▶</div></div>
+      <div class="flow-node" style="border:1px solid #88AAFF33">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#88AAFF22;border:1px solid #88AAFF55;color:#88AAFF">6</div>
+          <div class="flow-node-name">Activation</div>
+        </div>
+        <div class="flow-node-sub">Day 5–35 · LIR pacing</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div><div class="flow-arrow-head">▶</div></div>
+      <div class="flow-node" style="border:1px solid #88AAFF33">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#88AAFF22;border:1px solid #88AAFF55;color:#88AAFF">7</div>
+          <div class="flow-node-name">45-Day Review</div>
+        </div>
+        <div class="flow-node-sub">LIR check · Tier assigned</div>
+      </div>
+    </div>
+
+    <!-- Tiering branches -->
+    <div style="display:flex;justify-content:flex-end">
+      <div style="width:33%;display:flex;flex-direction:column;align-items:center">
+        <div style="width:1px;height:12px;background:#2A2A2A"></div>
+        <div style="color:#2A2A2A;font-size:12px;line-height:0.5">▼</div>
+        <div class="branch-row" style="margin-top:6px">
+          <div class="branch-item" style="background:#4ADE8011;border-color:#4ADE8033">
+            <div class="branch-label" style="color:#4ADE80">KAM</div>
+            <div class="branch-desc">Top 20%</div>
+          </div>
+          <div class="branch-item" style="background:#88AAFF11;border-color:#88AAFF33">
+            <div class="branch-label" style="color:#88AAFF">PV-Scaled</div>
+            <div class="branch-desc">Everyone else</div>
+          </div>
+        </div>
+        <div style="width:1px;height:10px;background:#2A2A2A;margin-top:8px"></div>
+        <div style="color:#2A2A2A;font-size:12px;line-height:0.5">▼</div>
+        <div style="margin-top:6px;background:#1A0F0A;border:1px dashed #F0C84D44;border-radius:6px;padding:7px 12px;text-align:center;width:100%">
+          <div style="color:#F0C84D;font-size:11px;font-weight:700">Bottom 800 Pool</div>
+          <div style="color:#555;font-size:10px;margin-top:2px">Playbook to be designed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feedback loop -->
+    <div class="feedback-divider">
+      <div class="feedback-label">↺ RevOps Feedback Loop</div>
+    </div>
+
+    <div class="flow-nodes">
+      <div class="flow-node" style="border:1px solid #88AAFF33">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#88AAFF22;border:1px solid #88AAFF55;color:#88AAFF">8</div>
+          <div class="flow-node-name">Ongoing Engagement</div>
+        </div>
+        <div class="flow-node-sub">KAM · Expansion Role · Scaled</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div><div class="flow-arrow-head">▶</div></div>
+      <div class="flow-node" style="border:1px solid #88AAFF33">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#88AAFF22;border:1px solid #88AAFF55;color:#88AAFF">9</div>
+          <div class="flow-node-name">Cross-Sell Engine</div>
+        </div>
+        <div class="flow-node-sub">Activate unused products</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div><div class="flow-arrow-head">▶</div></div>
+      <div class="flow-node" style="border:1px solid #FF888833">
+        <div class="flow-node-head">
+          <div class="flow-node-num" style="background:#FF888822;border:1px solid #FF888855;color:#FF8888">↺</div>
+          <div class="flow-node-name">RevOps Feedback</div>
+        </div>
+        <div class="flow-node-sub">LIR data → scoring model</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;text-align:right">
+      <span style="font-size:11px;color:#333;font-style:italic">RevOps feedback improves scoring → better targeting → higher LIR rates → loop repeats</span>
+    </div>
+  </div>
+
+  <!-- Adjacent Playbooks -->
+  <div class="card">
+    <div class="card-title">Adjacent Playbooks</div>
+    <div class="adjacent-grid">
+      <div class="adjacent-card" style="border-color:#88AAFF33">
+        <div class="adjacent-head">
+          <div class="adjacent-title">KAM Playbook</div>
+          <span class="badge badge-live">Live</span>
+        </div>
+        <div class="adjacent-desc">Post-handoff from CSM. Data-driven account growth, Oddle Eats campaigns, insights to action.</div>
+      </div>
+      <div class="adjacent-card" style="border-color:#F0C84D33">
+        <div class="adjacent-head">
+          <div class="adjacent-title">Bottom 800 Playbook</div>
+          <span class="badge badge-planned">Planned</span>
+        </div>
+        <div class="adjacent-desc">Nurture + All Access conversion for existing low-tier single-product merchants. Concurrent with GTM.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 BUILD TRACKER -->
+<section class="section" id="tracker">
+  <div class="section-label" style="color:#FF8888">Master · 16</div>
+  <div class="section-title">Build Tracker</div>
+  <div class="section-subtitle">What's live, what's in progress, what hasn't started. Every gap is visible.</div>
+
+  <div class="card">
+    <div class="tracker-header">
+      <div>Area</div><div>Item</div><div>Status</div><div>Owner</div>
+    </div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Data</div><div><div class="tracker-item">TAM crawl & restaurant universe</div></div><span class="badge badge-live">Live</span><div class="tracker-owner">RevOps</div></div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Data</div><div><div class="tracker-item">Brand power scoring (Google + Instagram)</div></div><span class="badge badge-live">Live</span><div class="tracker-owner">RevOps</div></div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Data</div><div><div class="tracker-item">Contact enrichment (email + phone)</div></div><span class="badge badge-live">Live</span><div class="tracker-owner">RevOps</div></div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Data</div><div><div class="tracker-item">Voice agent — owner number extraction</div></div><span class="badge badge-live">Live</span><div class="tracker-owner">RevOps / AI</div></div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Outreach</div><div><div class="tracker-item">Paid Ads (Meta + Google custom audiences)</div></div><span class="badge badge-live">Live</span><div class="tracker-owner">Marketing</div></div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Outreach</div><div><div class="tracker-item">AI Email + WhatsApp outreach agent (n8n + Lemlist)</div><div class="tracker-note">n8n SDR agents, Lemlist campaigns, Slack approval flow</div></div><span class="badge badge-inprogress">In Progress</span><div class="tracker-owner">AI GTM Lead</div></div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Outreach</div><div><div class="tracker-item">Direct sales sprint (high score pool)</div></div><span class="badge badge-live">Live</span><div class="tracker-owner">Sales</div></div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Outreach</div><div><div class="tracker-item">Outreach Manager (SDR) role</div></div><span class="badge badge-live">Live</span><div class="tracker-owner">Outreach Manager</div></div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Pipeline</div><div><div class="tracker-item">Follow-Up Agent (in-negotiation deals)</div><div class="tracker-note">Design complete, not yet built</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">AI / Sales</div></div>
+    <div class="tracker-row"><div class="tracker-area">GTM — Pipeline</div><div><div class="tracker-item">Attio pipeline hygiene (all reps)</div></div><span class="badge badge-inprogress">In Progress</span><div class="tracker-owner">Sales Lead</div></div>
+    <div class="tracker-row"><div class="tracker-area">Handoff</div><div><div class="tracker-item">Handoff document template in Attio</div><div class="tracker-note">Some fields exist, not fully enforced</div></div><span class="badge badge-inprogress">In Progress</span><div class="tracker-owner">Sales + CS Ops</div></div>
+    <div class="tracker-row"><div class="tracker-area">Handoff</div><div><div class="tracker-item">Internal handoff call (15 mins)</div><div class="tracker-note">Process not yet formalised</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">Sales + CSM</div></div>
+    <div class="tracker-row"><div class="tracker-area">CS — Data</div><div><div class="tracker-item">LIR pacing dashboard (BigQuery)</div></div><span class="badge badge-inprogress">In Progress</span><div class="tracker-owner">CS Ops / Data</div></div>
+    <div class="tracker-row"><div class="tracker-area">CS — Data</div><div><div class="tracker-item">LIR cohort dashboard (monthly)</div><div class="tracker-note">Phase 2, weeks 5–8</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">CS Ops / Data</div></div>
+    <div class="tracker-row"><div class="tracker-area">CS — Data</div><div><div class="tracker-item">2×2 tiering matrix thresholds defined</div><div class="tracker-note">Roughly defined, not documented</div></div><span class="badge badge-inprogress">In Progress</span><div class="tracker-owner">CS Ops</div></div>
+    <div class="tracker-row"><div class="tracker-area">CS — Process</div><div><div class="tracker-item">Team alignment + training on CS workflow</div><div class="tracker-note">Team hasn't seen v2.0 yet</div></div><span class="badge badge-gap">Gap</span><div class="tracker-owner">Jon / CS Lead</div></div>
+    <div class="tracker-row"><div class="tracker-area">CS — Process</div><div><div class="tracker-item">45-day review deck (auto-generated)</div><div class="tracker-note">Phase 2, weeks 5–8</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">CS Ops / Data</div></div>
+    <div class="tracker-row"><div class="tracker-area">CS — Process</div><div><div class="tracker-item">Automated at-risk + off-track alerts</div><div class="tracker-note">Phase 2</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">CS Ops</div></div>
+    <div class="tracker-row"><div class="tracker-area">CS — Growth</div><div><div class="tracker-item">Cross-sell email sequences (6/8/10 week)</div><div class="tracker-note">Phase 3, weeks 9–12</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">Marketing + CS</div></div>
+    <div class="tracker-row"><div class="tracker-area">CS — Growth</div><div><div class="tracker-item">WhatsApp content calendar (bi-weekly)</div><div class="tracker-note">Phase 3</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">Marketing + CS</div></div>
+    <div class="tracker-row"><div class="tracker-area">CS — Growth</div><div><div class="tracker-item">Opportunity analysis slide in review deck</div><div class="tracker-note">Phase 3</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">CS Ops</div></div>
+    <div class="tracker-row"><div class="tracker-area">Feedback Loop</div><div><div class="tracker-item">RevOps monthly LIR dashboard</div><div class="tracker-note">Phase 4, weeks 13+</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">CS Ops + RevOps</div></div>
+    <div class="tracker-row"><div class="tracker-area">Feedback Loop</div><div><div class="tracker-item">Quarterly CS + RevOps alignment cadence</div><div class="tracker-note">Phase 4</div></div><span class="badge badge-planned">Planned</span><div class="tracker-owner">Jon / CS + RevOps</div></div>
+    <div class="tracker-row"><div class="tracker-area">Adjacent</div><div><div class="tracker-item">Bottom 800 Playbook</div><div class="tracker-note">To be designed — no owner, no motion yet</div></div><span class="badge badge-gap">Gap</span><div class="tracker-owner">Jon</div></div>
+    <div class="tracker-row" style="border-bottom:none"><div class="tracker-area">Adjacent</div><div><div class="tracker-item">KAM Playbook</div><div class="tracker-note">Exists separately</div></div><span class="badge badge-live">Live</span><div class="tracker-owner">KAM Lead</div></div>
+  </div>
+
+  <div class="gaps-card">
+    <div class="gaps-title">Critical Gaps — Act First</div>
+    <div class="gap-item">
+      <div class="gap-item-title">Team has not seen or been trained on CS Workflow v2.0</div>
+      <div class="gap-item-note">This is a blocker for everything downstream. Alignment session needed this week.</div>
+    </div>
+    <div class="gap-item">
+      <div class="gap-item-title">Handoff document not fully enforced in Attio</div>
+      <div class="gap-item-note">The seam between GTM and CS is broken. Without this, CSM flies blind on every new merchant.</div>
+    </div>
+    <div class="gap-item">
+      <div class="gap-item-title">Bottom 800 has no owner and no motion</div>
+      <div class="gap-item-note">Two and a half months post All Access launch. This gap is compounding quietly.</div>
+    </div>
+    <div class="gap-item">
+      <div class="gap-item-title">Follow-Up Agent not yet built</div>
+      <div class="gap-item-note">In-negotiation deals are being dropped. Pipeline is leaking.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+  const navItems = document.querySelectorAll('.nav-item');
+  const sections = document.querySelectorAll('.section');
+
+  navItems.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.target;
+      const color = btn.dataset.color;
+
+      // Update nav active state
+      navItems.forEach(b => {
+        b.classList.remove('active');
+        b.style.borderLeftColor = 'transparent';
+        b.style.color = '';
+      });
+      btn.classList.add('active');
+      btn.style.borderLeftColor = color;
+      btn.style.color = color;
+
+      // Show correct section
+      sections.forEach(s => s.classList.remove('active'));
+      const target_section = document.getElementById(target);
+      if (target_section) {
+        target_section.classList.add('active');
+        // Scroll content to top
+        document.querySelector('.content').scrollTop = 0;
+      }
+    });
+  });
+
+  // Set initial active nav item style
+  const firstBtn = document.querySelector('.nav-item.active');
+  if (firstBtn) {
+    firstBtn.style.borderLeftColor = firstBtn.dataset.color;
+    firstBtn.style.color = firstBtn.dataset.color;
+  }
+</script>
+
+</body>
+</html>
